@@ -30,7 +30,7 @@ const Sidebar = () => {
         {menu.map((item) => {
           const link = item.link;
           return (
-            <li
+            <li key={link}
               className={`nav-item ${pathname === link ? "active" : ""}`}
               onClick={() => {
                 handleClick(link);
