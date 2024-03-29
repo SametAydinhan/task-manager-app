@@ -8,7 +8,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
 import { logout } from "@/app/utils/Icons";
-import { useClerk } from "@clerk/nextjs";
+import { UserButton, useClerk, useUser } from "@clerk/nextjs";
 
 const Sidebar = () => {
   const { signOut } = useClerk();
@@ -16,6 +16,12 @@ const Sidebar = () => {
   const { theme } = useGlobalState();
   const Router = useRouter();
   const pathname = usePathname();
+  const { user } = useUser();
+  const { firstName, lastName, imageUrl } = user || {
+    firstName: "",
+    lastName: "",
+    imageUrl: "",
+  };
   const handleClick = (link: string) => {
     Router.push(link);
   };
@@ -24,18 +30,23 @@ const Sidebar = () => {
       <div className='profile'>
         <div className='profile-overlay'></div>
         <div className='image'>
-          <Image width={70} height={70} src='/avatar.jpg' alt='Profile' />
+          <Image width={70} height={70} src={imageUrl} alt='Profile' />
         </div>
-        <h1>
-          <span>Samet </span>
-          <span>Aydınhan</span>
+        <div className='user'>
+          <div className='user-btn absolute z-20 top-0 left-0 w-full h-full'>
+            <UserButton />
+          </div>
+        </div>
+        <h1 className="capitlaze">
+          {firstName} {lastName}
         </h1>
       </div>
       <ul className='nav-items'>
         {menu.map((item) => {
           const link = item.link;
           return (
-            <li key={link}
+            <li
+              key={link}
               className={`nav-item ${pathname === link ? "active" : ""}`}
               onClick={() => {
                 handleClick(link);
@@ -47,8 +58,8 @@ const Sidebar = () => {
           );
         })}
       </ul>
-      <div className="sign-out relative m-6">
-        <Button 
+      <div className='sign-out relative m-6'>
+        <Button
           name={"Sign Out"}
           type={"submit"}
           padding={"0.4rem 0.8rem"}
@@ -74,6 +85,22 @@ const SidebarStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: ${(props) => props.theme.colorGrey3};
+  .user-btn {
+    .cl-rootBox {
+      width: 100%;
+      height: 100%;
+      .cl-userButtonBox {
+        width: 100%;
+        height: 100%;
+        .cl-userButtonTrigger {
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+        }
+      }
+    }
+  }
+
   .profile {
     margin: 1.5rem;
     position: relative;
@@ -126,7 +153,7 @@ const SidebarStyled = styled.div`
 
     > h1 {
       margin-left: 0.8rem;
-      font-size: clamp(1.2rem, 1vw, 1.4rem);
+      font-size: clamp(1rem, 1vw, 1.05rem);
       line-height: 100%;
     }
 
@@ -192,7 +219,8 @@ const SidebarStyled = styled.div`
 
   .active {
     background-color: ${(props) => props.theme.activeNavLink};
-    i, a {
+    i,
+    a {
       color: ${(props) => props.theme.colorIcons2};
     }
   }
