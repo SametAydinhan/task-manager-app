@@ -38,3 +38,20 @@ body {
   color: #fff;
   height: 100vh;
 }
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #27ae60;
+  border-bottom-color:transparent ;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
+  }
+}
