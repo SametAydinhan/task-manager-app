@@ -86,7 +86,7 @@ export async function PUT(req: Request) {
   }
 }
 
-export async function DEL(req: Request) {
+export async function DELETE(req: Request) {
   try {
   } catch (e) {
     console.error("ERROR DELETING TASKS: ", e);
