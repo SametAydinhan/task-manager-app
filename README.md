@@ -1,3 +1,14 @@
+## Screenshot
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/eb93e0aa-cf95-44b6-a59b-7989735ae852)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/dd15345b-9224-4856-9486-2089a41a1829)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/92b5ee38-22ee-43be-957e-963e9438e8db)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/fecf87da-861a-4cd3-afae-079305747da8)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/a9cb5f53-5809-4581-956e-88df3dbc99f5)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/49f8188d-246b-4d68-8a4d-dd758f837e49)
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
