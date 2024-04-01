@@ -14,6 +14,7 @@ interface Props {
   click?: () => void;
   type?: "button" | "submit" | "reset" | undefined;
   border?: string;
+  color?: string;
 }
 
 const Button = ({
@@ -27,6 +28,7 @@ const Button = ({
   click,
   type,
   border,
+  color
 }: Props) => {
   const { theme } = useGlobalState();
 
@@ -41,6 +43,7 @@ const Button = ({
         fontWeight: fw || "500",
         fontSize: fs,
         border: border || "none",
+        color: color || theme.colorGrey0,
       }}
       onClick={click}
     >
