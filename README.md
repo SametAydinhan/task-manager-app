@@ -1,3 +1,16 @@
+## Task Manager App 
+I made an task manager app with user authentication using nextjs and mongoDB. There is a task addition page that is not accesible to users who are not logged in.
+
+
+##Technologies Used
+- Next.js
+- TypeScript
+- TailwindCSS
+- Prisma
+- Clerk
+- Node.js
+
+   
 ## Screenshot
 ![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/eb93e0aa-cf95-44b6-a59b-7989735ae852)
 ![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/dd15345b-9224-4856-9486-2089a41a1829)
