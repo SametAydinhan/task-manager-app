@@ -5,6 +5,8 @@
 ![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/fecf87da-861a-4cd3-afae-079305747da8)
 ![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/a9cb5f53-5809-4581-956e-88df3dbc99f5)
 ![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/49f8188d-246b-4d68-8a4d-dd758f837e49)
+![image](https://github.com/SametAydinhan/task-manager-app/assets/93541408/709d8999-1fa6-446f-9d55-53da57074f2f)
+
 
 
 
