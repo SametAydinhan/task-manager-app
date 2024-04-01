@@ -7,13 +7,13 @@ import menu from "@/app/utils/menu";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import Button from "../Button/Button";
-import { logout } from "@/app/utils/Icons";
+import { arrowLeft, bars, logout } from "@/app/utils/Icons";
 import { UserButton, useClerk, useUser } from "@clerk/nextjs";
 
 const Sidebar = () => {
   const { signOut } = useClerk();
   const router = useRouter();
-  const { theme } = useGlobalState();
+  const { theme, collapsed, collapseMenu } = useGlobalState();
   const Router = useRouter();
   const pathname = usePathname();
   const { user } = useUser();
@@ -26,7 +26,10 @@ const Sidebar = () => {
     Router.push(link);
   };
   return (
-    <SidebarStyled theme={theme}>
+    <SidebarStyled theme={theme} collapsed={collapsed}>
+      <button className='toggle-nav' onClick={collapseMenu}>
+        {collapsed ? bars : arrowLeft}
+      </button>
       <div className='profile'>
         <div className='profile-overlay'></div>
         <div className='image'>
@@ -37,7 +40,7 @@ const Sidebar = () => {
             <UserButton />
           </div>
         </div>
-        <h1 className="capitlaze">
+        <h1 className='capitlaze'>
           {firstName} {lastName}
         </h1>
       </div>
@@ -74,7 +77,7 @@ const Sidebar = () => {
   );
 };
 
-const SidebarStyled = styled.div`
+const SidebarStyled = styled.div<{ collapsed: boolean }>`
   position: relative;
   width: ${(props) => props.theme.sidebarWidth};
   background-color: ${(props) => props.theme.colorBg2};
@@ -85,6 +88,33 @@ const SidebarStyled = styled.div`
   flex-direction: column;
   justify-content: space-between;
   color: ${(props) => props.theme.colorGrey3};
+
+  @media screen and (max-width: 768px) {
+    position: fixed;
+    height: calc(100vh - 2rem);
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.53, 0.21, 0, 1);
+    transform: ${(props) =>
+      props.collapsed ? "translateX(-107%)" : "translateX(0)"};
+    .toggle-nav {
+      display: block !important;
+    }
+  }
+
+  .toggle-nav {
+    display: none;
+    position: absolute;
+    right: -69px;
+    top: 1.8rem;
+    padding: 0.8rem 0.9rem;
+    border-top-right-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    background-color: ${(props) => props.theme.colorBg2};
+    border-right: 2px solid ${(props) => props.theme.borderColor2};
+    border-top: 2px solid ${(props) => props.theme.borderColor2};
+    border-bottom: 2px solid ${(props) => props.theme.borderColor2};
+  }
+
   .user-btn {
     .cl-rootBox {
       width: 100%;
