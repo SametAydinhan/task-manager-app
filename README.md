@@ -2,7 +2,7 @@
 I made an task manager app with user authentication using nextjs and mongoDB. There is a task addition page that is not accesible to users who are not logged in.
 
 
-##Technologies Used
+## Technologies Used
 - Next.js
 - TypeScript
 - TailwindCSS
